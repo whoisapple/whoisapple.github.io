@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,5 +36,36 @@
             © 2025. siwonarchive All rights reserved.
         </footer>
     </div>
+
+    <!-- 모달 -->
+    <div id="imgModal" aria-hidden="true">
+      <img id="modalImg" alt="">
+    </div>
+
+   <script>
+    // 모달 요소 정의
+      const gallery = document.querySelector('.gallery');
+      const modal = document.getElementById('imgModal');
+      const modalImg = document.getElementById('modalImg');
+
+    // 모달 띄우가 
+      gallery.addEventListener('click', (e) => {
+        if (e.target.tagName !== 'IMG') return; //태그가 IMG가 아니면 종료
+        modalImg.src = e.target.src; //src 설정
+        modal.style.display = 'flex'; // 모달 보이기
+        document.body.classList.add('modal-open'); // 스크롤 막기
+      });
+
+      // 모달 백그라운드 클릭시 모달 닫기
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      // 모달 닫기 함수
+      function closeModal(){
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+      }
+    </script>
 </body>
 </html>

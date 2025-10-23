@@ -237,6 +237,8 @@ h1{
     line-height: 160%;
 }
 
+/* 이미지 모달 스타일 */
+
 #imgModal {
   display: none;
   position: fixed;
